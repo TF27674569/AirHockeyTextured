@@ -14,4 +14,5 @@ void main()
 {
     v_TextureCoordinates = a_TextureCoordinates;
     gl_Position = u_Matrix*a_Position;// 4分量的矩阵相乘
+    gl_PointSize = 10.0;
 }
