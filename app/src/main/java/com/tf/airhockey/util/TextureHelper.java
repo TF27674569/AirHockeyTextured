@@ -42,7 +42,6 @@ public class TextureHelper {
 
         // 将bitmap绑定到纹理对象
         GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
-
         // 释放bitmap资源
         bitmap.recycle();
 

@@ -4,14 +4,7 @@ import android.content.Context;
 
 import com.tf.airhockey.R;
 
-import static android.opengl.GLES20.GL_TEXTURE0;
-import static android.opengl.GLES20.GL_TEXTURE_2D;
-import static android.opengl.GLES20.glActiveTexture;
-import static android.opengl.GLES20.glBindTexture;
-import static android.opengl.GLES20.glGetAttribLocation;
-import static android.opengl.GLES20.glGetUniformLocation;
-import static android.opengl.GLES20.glUniform1i;
-import static android.opengl.GLES20.glUniformMatrix4fv;
+import static android.opengl.GLES20.*;
 
 /**
  * create by TIAN FENG on 2019/8/28
@@ -23,11 +16,13 @@ public class ColorShaderProgram extends ShaderProgram {
 
     // attribute location
     private final int aPositionLocation;
+    private final int uColorLocation;
     private final int aColorLocation;
 
     public ColorShaderProgram(Context context) {
         super(context, R.raw.texture_vertex_shader, R.raw.texture_fragment_shader);
         uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
+        uColorLocation = glGetUniformLocation(program, U_COLOR);
 
         aPositionLocation = glGetAttribLocation(program, A_POSITION);
         aColorLocation = glGetAttribLocation(program, A_COLOR);
@@ -36,8 +31,9 @@ public class ColorShaderProgram extends ShaderProgram {
     /**
      * 传递 矩阵和纹理 给 对应 uniform
      */
-    public void setUnifroms(float[] matrix) {
+    public void setUniforms(float[] matrix, float r, float g, float b) {
         glUniformMatrix4fv(uMatrixLocation, 1, false, matrix, 0);
+        glUniform4f(uColorLocation, r, g, b, 1f);
     }
 
 

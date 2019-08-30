@@ -16,9 +16,10 @@ public class Table {
     private static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;//  S T
     private static final int STRIDE = (POSITION_COMPONENT_COUNT + TEXTURE_COORDINATES_COMPONENT_COUNT) * BYTES_PRE_FLOAT;
 
-    // 桌子 循环画三角形 draw 4 个点与 中心点（0，0）  后面是纹理
+    // 桌子 循环画三角形 draw 4 个点与 中心点（0，0）  后面是纹理坐标(有时也叫uv)，对应屏幕左下角
+
     private static final float[] VERTEX_DATA = {
-            // x,y ,S,T
+            // x,y ，S,T 顶点坐标系与纹理坐标系相对应 （顶点确定画的位置，纹理确定显示的部分）
             0f, 0f, 0.5f, 0.5f,
             -0.5f, -0.8f, 0f, 0.9f,
             0.5f, -0.8f, 1f, 0.9f,

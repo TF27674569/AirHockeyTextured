@@ -31,7 +31,7 @@ public class TextureShaderProgram extends ShaderProgram {
     /**
      * 传递 矩阵和纹理 给 对应 uniform
      */
-    public void setUnifroms(float[] matrix, int textureId) {
+    public void setUniforms(float[] matrix, int textureId) {
         //  传递矩阵 给 对应的uniform texture unit 使用纹理单元  应为GPU 绘制的纹理数量有限
         glUniformMatrix4fv(uMatrixLocation, 1, false, matrix, 0);
 

@@ -11,6 +11,8 @@ import com.tf.airhockey.util.TextResourcesReader;
  */
 public class ShaderProgram {
 
+    protected static final String U_COLOR = "u_Color";
+
     // uniform
     protected static final String U_MATRIX = "u_Matrix";// 正交投影矩阵
     protected static final String U_TEXTURE_UNIT = "u_TextureUnit";
